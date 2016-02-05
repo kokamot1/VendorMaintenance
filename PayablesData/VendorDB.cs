@@ -119,6 +119,37 @@ namespace PayablesData
             }
         }
 
+        public static bool DeleteVendor(Vendor vendor)
+        {
+            if (vendor == null) { return false; }
+            SqlConnection connection = PayablesDB.GetConnection();
+            string deleteStatement =
+                "DELETE from Vendors " +
+                "WHERE VendorID = @VendorID";
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+            deleteCommand.Parameters.AddWithValue("@VendorID", vendor.VendorID);
+
+            try
+            {
+                connection.Open();
+                int count = deleteCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+        }
+
         public static bool UpdateVendor(Vendor oldVendor, Vendor newVendor)
         {
             SqlConnection connection = PayablesDB.GetConnection();

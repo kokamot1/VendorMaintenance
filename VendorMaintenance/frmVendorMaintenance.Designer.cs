@@ -45,6 +45,7 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExit
@@ -210,12 +211,24 @@
             this.Label2.TabIndex = 33;
             this.Label2.Text = "Name:";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Location = new System.Drawing.Point(186, 193);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 50;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmVendorMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(373, 231);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
@@ -261,6 +274,7 @@
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.TextBox txtName;
         internal System.Windows.Forms.Label Label2;
+        internal System.Windows.Forms.Button deleteButton;
     }
 }
 

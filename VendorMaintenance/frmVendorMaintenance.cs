@@ -29,6 +29,22 @@ namespace VendorMaintenance
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (vendor != null)
+            {
+                Boolean result = VendorDB.DeleteVendor(vendor);
+                if (result == false)
+                {
+                    MessageBox.Show("Vendor Could not be deleted");
+                }
+                else
+                {
+                    MessageBox.Show("Vendor Deleted");
+                }
+            }
+        }
+
         private void GetVendor(int vendorID)
         {
             try
@@ -55,6 +71,7 @@ namespace VendorMaintenance
             txtState.Text = vendor.State;
             txtZipCode.Text = vendor.ZipCode;
             btnModify.Enabled = true;
+            deleteButton.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
